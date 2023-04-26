@@ -1,7 +1,13 @@
+import Button from "@/components/Button";
+import styled from "styled-components";
+
+
 export default function HomePage() {
+
   return (
-    <div>
-      <h1>Hello from Next.js</h1>
-    </div>
+    <>
+    <p>Enter your Location:</p>
+    <Button href="/radiation" text="Go to Next Page" />
+    </>
   );
 }
