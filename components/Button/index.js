@@ -2,10 +2,10 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export default function Button({ href, text }) {
-  return <StyledLink href={href}>{text}</StyledLink>;
+  return <StyledButton href={href}>{text}</StyledButton>;
 }
 
-const StyledLink = styled(Link)`
+const StyledButton = styled(Link)`
   display: inline-block;
   background-color: #f5a623;
   color: white;
