@@ -9,9 +9,9 @@ export default function ButtonNext() {
     };
   
     return (
-      <StyledButton onClick={handleClick}>
+      <StyledLink href="/radiation">
         Go to Next Page
-      </StyledButton>
+      </StyledLink>
     );
   }
 
