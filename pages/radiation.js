@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Card from "@/components/Card"
-import ButtonPrevious from "@/components/ButtonPrevious"
+import Button from "@/components/Button"
+
 
 
 export default function RadiationResult() {
@@ -8,7 +9,7 @@ export default function RadiationResult() {
     <>
    <Header/>
    <Card/>
-   <ButtonPrevious/>
+   <Button href="/" text="Go to Previous Page" />
    </>
   );
 }
