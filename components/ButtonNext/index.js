@@ -4,9 +4,6 @@ import styled from 'styled-components';
 export default function ButtonNext() {
     const router = useRouter();
   
-    const handleClick = () => {
-      router.push('/radiation');
-    };
   
     return (
       <StyledLink href="/radiation">
