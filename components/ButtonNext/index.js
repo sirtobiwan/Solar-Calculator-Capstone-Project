@@ -14,7 +14,7 @@ export default function ButtonNext() {
 
   
 
-const StyledButton = styled.button`
+const StyledButton = styled(Link)`
   background-color: #f5a623;
   color: white;
   border: none;
