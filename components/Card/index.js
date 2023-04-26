@@ -20,7 +20,7 @@ const StyledLocation = styled.div`
   padding: 1.5rem;
 `;
 
-const StyledLabel = styled.h3`
+const StyledLabel = styled.h2`
   color: #666666;
   font-size: 1rem;
   margin-bottom: 1rem;
