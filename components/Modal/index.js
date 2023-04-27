@@ -30,7 +30,7 @@ export default function Modal({ text, modalContent }) {
 const Overlay = styled.div`
   color: black;
   position: fixed;
-  z-index: 999;
+  z-index: 2;
   top: 0;
   left: 0;
   right: 0;
@@ -44,7 +44,7 @@ const ModalStyle = styled.div`
   background-color: white;
   border-radius: 5px;
   padding: 0,5rem;
-  margin: 20rem;
+  margin: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
 `;

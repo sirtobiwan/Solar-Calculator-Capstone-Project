@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Modal from "@/components/Modal";
+import Modal from "../../components/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
@@ -48,29 +48,29 @@ const StyledRadiation = styled.span`
   color: white;
   padding: 0.25rem 0.5rem;
   transition: background-color 0.3s ease;
-  &:hover {
-  background-color: #e6951d;
-  border: none;
-  padding: 0.4rem 0.65rem;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-`;
 
-`
-  display: inline-block;
-  background-color: #f5a623;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  padding: 0.75rem 1.5rem;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease;
-  text-decoration: none;
+  @media (hover: hover) {
+    &:hover:enabled {
+      background-color: #e6951d;
+      border: none;
+      padding: 0.4rem 0.65rem;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @media (hover: none) {
+    &:active:enabled {
+      background-color: #e6951d;
+    }
+  }
 
   &:hover {
     background-color: #e6951d;
+    border: none;
+    padding: 0.4rem 0.65rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
 
