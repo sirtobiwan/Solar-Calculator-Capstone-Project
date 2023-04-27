@@ -44,7 +44,7 @@ const ModalStyle = styled.div`
   background-color: white;
   border-radius: 5px;
   padding: 0,5rem;
-  margin: 2rem;
+  margin: 20rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   position: relative;
 `;
