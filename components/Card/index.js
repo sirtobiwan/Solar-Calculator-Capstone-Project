@@ -1,4 +1,8 @@
 import styled from "styled-components";
+import Modal from "../../components/Modal";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import Image from "next/image";
 
 const StyledCard = styled.article`
   background-color: #f9f9f9;
@@ -9,6 +13,7 @@ const StyledCard = styled.article`
   margin: 2rem auto;
   max-width: 800px;
   overflow: hidden;
+  position: relative;
 `;
 
 const StyledLocation = styled.div`
@@ -30,6 +35,49 @@ const StyledData = styled.p`
   font-size: 2rem;
   font-weight: bold;
   padding-top: 0.5rem;
+  position: relative;
+`;
+
+const StyledRadiation = styled.span`
+  font-size: 0.8rem;
+  position: absolute;
+  bottom: 0rem;
+  right: 0.2rem;
+  background-color: #f5a623;
+  border-radius: 5px;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.3s ease;
+
+  @media (hover: hover) {
+    &:hover:enabled {
+      background-color: #e6951d;
+      border: none;
+      padding: 0.4rem 0.65rem;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  @media (hover: none) {
+    &:active:enabled {
+      background-color: #e6951d;
+    }
+  }
+
+  &:hover {
+    background-color: #e6951d;
+    border: none;
+    padding: 0.4rem 0.65rem;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+`;
+
+const StyledImage = styled(Image)`
+  width: 50%;
+  height: auto;
+  padding: 10px
 `;
 
 export default function Card() {
@@ -42,6 +90,33 @@ export default function Card() {
       <StyledLocation>
         <StyledLabel>Annual Radiation</StyledLabel>
         <StyledData>200 kWh/m²</StyledData>
+        <StyledRadiation>
+          <Modal
+            text={
+              <>
+                <FontAwesomeIcon icon={faAngleDown} /> radiation in ghi
+              </>
+            }
+            modalContent={
+              <>
+                <h2>Radiation in GHI </h2>
+                <section>
+                  Global Horizontal Irradiance (GHI) is the total solar
+                  radiation incident on a horizontal surface. It is the sum of
+                  Direct Normal Irradiance (DNI), Diffuse Horizontal Irradiance,
+                  and ground-reflected radiation.
+                </section>
+              
+                <StyledImage
+                  src="/ghi.gif"
+                  alt="My Image"
+                  width={500}
+                  height={300}
+                />
+              </>
+            }
+          />
+        </StyledRadiation>
       </StyledLocation>
     </StyledCard>
   );
