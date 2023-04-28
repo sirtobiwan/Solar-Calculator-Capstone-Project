@@ -1,12 +1,13 @@
-import dbConnect from "../../../db/connect";
-import Ghi from "../../../db/models/Ghis";
+import dbConnect from "@/db/connect";
+import Ghi from "@/db/models/Ghis";
 
 export default async function handler(request, response) {
   await dbConnect();
-  const { id } = request.query;
-  console.log(id);
+
   if (request.method === "GET") {
-    const ghi = await Ghi.findById(id);
+    const ghi = await Ghi.find();
+
+    console.log(ghi);
 
     if (!ghi) {
       return response.status(404).json({ status: "Not Found" });

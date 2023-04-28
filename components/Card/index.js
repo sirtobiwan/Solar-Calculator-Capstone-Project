@@ -3,7 +3,7 @@ import Modal from "../../components/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import useSWR from 'swr';
+import useSWR from "swr";
 
 const StyledCard = styled.article`
   background-color: #f9f9f9;
@@ -80,13 +80,18 @@ const StyledRadiation = styled.span`
 const StyledImage = styled(Image)`
   width: 50%;
   height: auto;
-  padding: 10px
+  padding: 10px;
 `;
-const fetcher = (...args) => fetch(...args).then(res => res.json())
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function Card() {
-  const { data } = useSWR('/api/ghi', fetcher);
-  console.log(data)
-  //const sum = data.reduce((accumulator, curValue) => accumulator + curValue.ghi, 0);
+  //fetch from api and before from mongoDB:
+  const { data } = useSWR("/api/ghi", fetcher);
+  if(!data){
+    return <div>Loading...</div>
+  }
+  //array method to accumulate the array
+  const sum = data.reduce((accumulator, curValue) => accumulator + curValue.ghi, 0);
+  const kWh= (sum / 365 / 24).toFixed(1) //rounds to one decimal
   return (
     <StyledCard>
       <StyledLocation>
@@ -95,7 +100,7 @@ export default function Card() {
       </StyledLocation>
       <StyledLocation>
         <StyledLabel>Annual Radiation</StyledLabel>
-        <StyledData> kWh/m²</StyledData>
+        <StyledData>{kWh} kWh/m²</StyledData>
         <StyledRadiation>
           <Modal
             text={
@@ -112,7 +117,7 @@ export default function Card() {
                   Direct Normal Irradiance (DNI), Diffuse Horizontal Irradiance,
                   and ground-reflected radiation.
                 </section>
-              
+
                 <StyledImage
                   src="/ghi.gif"
                   alt="My Image"
