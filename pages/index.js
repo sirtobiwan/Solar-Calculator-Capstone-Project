@@ -7,7 +7,7 @@ export default function HomePage() {
   return (
     <>
     <p>Enter your Location:</p>
-    <Button href="/radiation" text="Go to Next Page" />
+    <Button href="/radiation" text="Next" />
     </>
   );
 }
