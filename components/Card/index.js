@@ -82,11 +82,11 @@ const StyledImage = styled(Image)`
   height: auto;
   padding: 10px
 `;
-
+const fetcher = (...args) => fetch(...args).then(res => res.json())
 export default function Card() {
-  const { data } = useSWR('/../../pages/api/ghi', { fallbackData: [] });
+  const { data } = useSWR('/api/ghi', fetcher);
   console.log(data)
-  const sum = data.reduce((accumulator, curValue) => accumulator + curValue.ghi, 0);
+  //const sum = data.reduce((accumulator, curValue) => accumulator + curValue.ghi, 0);
   return (
     <StyledCard>
       <StyledLocation>
@@ -95,7 +95,7 @@ export default function Card() {
       </StyledLocation>
       <StyledLocation>
         <StyledLabel>Annual Radiation</StyledLabel>
-        <StyledData>{sum} kWh/m²</StyledData>
+        <StyledData> kWh/m²</StyledData>
         <StyledRadiation>
           <Modal
             text={
