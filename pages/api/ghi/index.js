@@ -1,5 +1,5 @@
-import dbConnect from "../../../../db/connect";
-import Ghi from "../../../../db/models/Ghi";
+import dbConnect from "../../../db/connect";
+import Ghi from "../../../db/models/Ghis";
 
 export default async function handler(request, response) {
   await dbConnect();
@@ -14,5 +14,4 @@ export default async function handler(request, response) {
 
     response.status(200).json(ghi);
   }
-  
 }
