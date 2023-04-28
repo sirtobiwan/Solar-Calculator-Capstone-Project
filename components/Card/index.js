@@ -23,6 +23,10 @@ const StyledLocation = styled.div`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-basis: 50%;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledLabel = styled.h2`
@@ -89,9 +93,11 @@ export default function Card() {
   if(!data){
     return <div>Loading...</div>
   }
+  console.log(data)
   //array method to accumulate the array
   const sum = data.reduce((accumulator, curValue) => accumulator + curValue.ghi, 0);
   const kWh= (sum / 365 / 24).toFixed(1) //rounds to one decimal
+  
   return (
     <StyledCard>
       <StyledLocation>
