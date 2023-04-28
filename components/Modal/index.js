@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { useState } from "react";
 
 export default function Modal({ text, modalContent }) {
+
+  //Modal state to display the modal
   const [showModal, setShowModal] = useState(false);
 
   const handleModalOpen = () => {
@@ -28,7 +30,7 @@ export default function Modal({ text, modalContent }) {
 }
 
 const Overlay = styled.div`
-  color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 2;
   top: 0;
@@ -36,16 +38,17 @@ const Overlay = styled.div`
   right: 0;
   bottom: 0;
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ModalStyle = styled.div`
   background-color: white;
-  border-radius: 5px;
-  padding: 0,5rem;
+  color: black;
+  border-radius: 10px;
+  padding: 1rem;
   margin: 2rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
 `;
 
@@ -63,4 +66,6 @@ const CloseButton = styled.button`
 const ModalContent = styled.div`
   text-align: center;
   padding: 2rem;
+  font-size: 1.2rem;
+  font-family: Arial, sans-serif;
 `;

@@ -8,7 +8,12 @@ export default function RadiationResult() {
       <Header />
       <Card></Card>
 
-      <Button href="/" text="Go to Previous Page" />
+      <Button href="/" text="Prev" />
+    
+
+
+
+
     </>
   );
 }

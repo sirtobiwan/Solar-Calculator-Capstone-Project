@@ -2,11 +2,15 @@ import Link from "next/link";
 import styled from "styled-components";
 
 export default function Button({ href, text }) {
-  return <StyledButton href={href}>{text}</StyledButton>;
+  return (
+    <StyledButton href={href} >
+      {text}
+    </StyledButton>
+  );
 }
 
 const StyledButton = styled(Link)`
-  display: inline-block;
+  display: inline-block ;
   background-color: #f5a623;
   color: white;
   border: none;

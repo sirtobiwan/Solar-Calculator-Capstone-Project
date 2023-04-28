@@ -3,6 +3,7 @@ import Modal from "../../components/Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
+import useSWR from 'swr';
 
 const StyledCard = styled.article`
   background-color: #f9f9f9;
@@ -49,6 +50,8 @@ const StyledRadiation = styled.span`
   padding: 0.25rem 0.5rem;
   transition: background-color 0.3s ease;
 
+  //hover on/off for mobile/desktop
+
   @media (hover: hover) {
     &:hover:enabled {
       background-color: #e6951d;
@@ -81,6 +84,9 @@ const StyledImage = styled(Image)`
 `;
 
 export default function Card() {
+  const { data } = useSWR('/../../pages/api/ghi', { fallbackData: [] });
+  console.log(data)
+  const sum = data.reduce((accumulator, curValue) => accumulator + curValue.ghi, 0);
   return (
     <StyledCard>
       <StyledLocation>
@@ -89,7 +95,7 @@ export default function Card() {
       </StyledLocation>
       <StyledLocation>
         <StyledLabel>Annual Radiation</StyledLabel>
-        <StyledData>200 kWh/m²</StyledData>
+        <StyledData>{sum} kWh/m²</StyledData>
         <StyledRadiation>
           <Modal
             text={
