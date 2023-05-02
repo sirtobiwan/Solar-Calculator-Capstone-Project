@@ -1,20 +1,25 @@
 import Header from "@/components/Header";
-import Card from "@/components/CardRadiation";
+
 import Button from "@/components/Button";
 import styled from "styled-components";
 
-export default function RadiationResult() {
+export default function Savings() {
   return (
     <>
       <Header />
-      <Card></Card>
+      <p>Savings</p>
       <ButtonContainer>
-        <Button href="/" text="Back" />
-        <Button href="/savings" text="Next" />
+      <Button href="/radiation" text="Back" />
+      <Button href="/" text="Next" />
       </ButtonContainer>
+
+
+
+
     </>
   );
 }
+
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;

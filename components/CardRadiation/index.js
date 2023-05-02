@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Modal from "../../components/Modal";
+import Modal from "../Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
@@ -86,12 +86,15 @@ const fetcher = (...args) => fetch(...args).then((res) => res.json());
 export default function Card() {
   //fetch from api and before from mongoDB:
   const { data } = useSWR("/api/ghi", fetcher);
-  if(!data){
-    return <div>Loading...</div>
+  if (!data) {
+    return <div>Loading...</div>;
   }
   //array method to accumulate the array
-  const sum = data.reduce((accumulator, curValue) => accumulator + curValue.ghi, 0);
-  const kWh= (sum / 365 / 24).toFixed(1) //rounds to one decimal
+  const sum = data.reduce(
+    (accumulator, curValue) => accumulator + curValue.ghi,
+    0
+  );
+  const kWh = (sum / 365 / 24).toFixed(1); //rounds to one decimal
   return (
     <StyledCard>
       <StyledLocation>
