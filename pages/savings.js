@@ -12,10 +12,6 @@ export default function Savings() {
       <Button href="/radiation" text="Back" />
       <Button href="/" text="Next" />
       </ButtonContainer>
-
-
-
-
     </>
   );
 }
