@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 export default function Button({ href, text }) {
   return (
-    <StyledButton href={href} >
-      {text}
-    </StyledButton>
+    
+      <StyledButton href={href}>{text}</StyledButton>
+    
   );
 }
 
 const StyledButton = styled(Link)`
-  display: inline-block ;
+
   background-color: #f5a623;
   color: white;
   border: none;
@@ -26,3 +26,5 @@ const StyledButton = styled(Link)`
     background-color: #e6951d;
   }
 `;
+
+
