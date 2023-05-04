@@ -1,21 +1,25 @@
 import Button from "@/components/Button";
 import Header from "@/components/Header";
 import styled from "styled-components";
+import LandingPage from "@/components/LandingPage";
 
 export default function HomePage() {
+
+
   return (
     <>
       <Header />
-
-      <p>Enter your Location:</p>
+      <LandingPage/>
       <ButtonContainer>
-        <Button href="/radiation" text="Next" />
+        <Button href="/radiation" type="submit" text="Start" />
       </ButtonContainer>
     </>
   );
 }
-//flex cannot be at button container as it would render twice
+
+
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  margin-top: 30px;
 `;

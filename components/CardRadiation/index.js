@@ -83,7 +83,7 @@ const StyledImage = styled(Image)`
   padding: 10px;
 `;
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
-export default function Card() {
+export default function Card({inputValue}) {
   //fetch from api and before from mongoDB:
   const { data } = useSWR("/api/ghi", fetcher);
   if (!data) {
@@ -95,6 +95,8 @@ export default function Card() {
     0
   );
   const kWh = (sum / 365 / 24).toFixed(1); //rounds to one decimal
+  
+  
   return (
     <StyledCard>
       <StyledLocation>

@@ -7,7 +7,7 @@ export default function Savings() {
   return (
     <>
       <Header />
-      <p>Savings</p>
+      <p>Savings:</p>
       <ButtonContainer>
       <Button href="/radiation" text="Back" />
       <Button href="/" text="Next" />
