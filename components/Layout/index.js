@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export default function Header() {
+export default function Layout() {
   return (
     <StyledHeader>
       <h1>My Solar Calculator</h1>

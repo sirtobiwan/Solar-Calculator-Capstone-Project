@@ -1,16 +1,11 @@
-
-import Header from "@/components/Header";
-import Card from "@/components/CardRadiation";
+import CardRadiation from "@/components/CardRadiation";
 import Button from "@/components/Button";
 import styled from "styled-components";
 
 export default function RadiationResult() {
-  
-  
   return (
     <>
-      <Header />
-      <Card ></Card>
+      <CardRadiation></CardRadiation>
       <ButtonContainer>
         <Button href="/" text="Back" />
         <Button href="/savings" text="Next" />
