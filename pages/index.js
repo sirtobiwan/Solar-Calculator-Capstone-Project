@@ -25,7 +25,7 @@ const IntroContainer = styled.div`
 `;
 
 const IntroParagraph = styled.p`
-  font-size: 40px;
+  font-size: 2rem;
   font-weight: bold;
   text-align: center;
   margin: 0;
