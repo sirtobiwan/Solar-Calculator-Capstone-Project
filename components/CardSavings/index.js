@@ -3,8 +3,7 @@ import Modal from "../Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import RadiationData from "../RadiationData";
-import Location from "../Location";
+import ElectricityCosts from "../ElectricityCosts";
 
 
 const StyledCard = styled.article`
@@ -98,38 +97,16 @@ export default function CardRadiation() {
   return (
     <StyledCard>
       <StyledContent>
-        <StyledLabel>Your Location</StyledLabel>
-        <StyledData><Location/></StyledData>
+        <StyledLabel>Enter your ElectricityCosts:</StyledLabel>
+        <StyledData><ElectricityCosts/></StyledData>
       </StyledContent>
       <StyledContent>
-        <StyledLabel>Annual Radiation</StyledLabel>
-        <StyledData><RadiationData/></StyledData>
-        <StyledRadiation>
-          <Modal
-            text={
-              <>
-                <FontAwesomeIcon icon={faAngleDown} /> radiation in ghi
-              </>
-            }
-            modalContent={
-              <>
-                <h2>Radiation in GHI </h2>
-                <section>
-                  Global Horizontal Irradiance (GHI) is the total solar
-                  radiation incident on a horizontal surface. It is the sum of
-                  Direct Normal Irradiance (DNI), Diffuse Horizontal Irradiance,
-                  and ground-reflected radiation.
-                </section>
-                <StyledImage
-                  src="/ghi.gif"
-                  alt="My Image"
-                  width={500}
-                  height={300}
-                />
-              </>
-            }
-          />
-        </StyledRadiation>
+        <StyledLabel>Annual Radiation per Solar Panel</StyledLabel>
+        <StyledData>test</StyledData>
+      </StyledContent>
+      <StyledContent>
+        <StyledLabel>Savings</StyledLabel>
+        <StyledData>Test</StyledData>
       </StyledContent>
     </StyledCard>
   );

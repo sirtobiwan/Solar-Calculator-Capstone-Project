@@ -1,10 +1,11 @@
 import Button from "@/components/Button";
+import CardSavings from "@/components/CardSavings";
 import styled from "styled-components";
 
 export default function Savings() {
   return (
     <>
-      <p>Savings:</p>
+      <CardSavings></CardSavings>
       <ButtonContainer>
         <Button href="/radiation" text="Back" />
         <Button href="/" text="Next" />
