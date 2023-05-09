@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Modal from "../Modal";
 import ElectricityCosts from "../ElectricityCosts";
+import RadiationData from "../RadiationData";
+import { useState } from "react";
 
 
 const StyledCard = styled.article`
@@ -35,7 +37,7 @@ const StyledLabel = styled.label`
   text-transform: uppercase;
 `;
 
-const StyledData = styled.p`
+const StyledData = styled.div`
   font-size: 2rem;
   font-weight: bold;
   padding-top: 0.5rem;
@@ -48,23 +50,30 @@ const StyledData = styled.p`
 
 
 
-export default function CardRadiation() {
+export default function CardSavings() {
+  const [inputValue, setInputValue] = useState('');
+  function handleInputChange (event){
+    setInputValue(event.target.value)
+  }
+  
+  const radiationData = RadiationData();
 
+  const savings = inputValue * radiationData;
 
   
   return (
     <StyledCard>
       <StyledContent>
-        <StyledLabel htmlFor="electricityCosts">Enter your ElectricityCosts:</StyledLabel>
-        <StyledData><ElectricityCosts/></StyledData>
+        <StyledLabel htmlFor="electricityCosts">Enter your ElectricityCosts per kWh:</StyledLabel>
+        <StyledData><ElectricityCosts value={inputValue} onChangeInput={handleInputChange} /></StyledData>
       </StyledContent>
       <StyledContent>
         <StyledLabel htmlFor="test">Annual Radiation per Solar Panel</StyledLabel>
-        <StyledData>test</StyledData>
+        <StyledData><RadiationData/></StyledData>
       </StyledContent>
       <StyledContent>
         <StyledLabel htmlFor="savings">Savings</StyledLabel>
-        <StyledData>Test</StyledData>
+        <StyledData>{inputValue}</StyledData>
       </StyledContent>
     </StyledCard>
   );

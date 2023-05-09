@@ -14,10 +14,10 @@ const sum = data.reduce(
   (accumulator, curValue) => accumulator + curValue.ghi,
   0
 );
-const kWh = (sum / 365 / 24).toFixed(1); //rounds to one decimal
+const kWh = ((sum / 365 / 24)*1.7).toFixed(1); //rounds to one decimal
 
     return (
-        <p>{kWh} kWh/m²</p>
+        <p>{kWh} kWh</p>
     )
 
 }
