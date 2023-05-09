@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styled from 'styled-components';
+import { useState } from "react";
+import styled from "styled-components";
 
 const StyledInput = styled.input`
   
@@ -14,7 +14,7 @@ const StyledInput = styled.input`
 `;
 
 export default function ElectricityCosts() {
-  const [electricityCosts, setElectricityCosts] = useState('');
+  const [electricityCosts, setElectricityCosts] = useState("");
 
   const handleInputChange = (event) => {
     setElectricityCosts(event.target.value);
