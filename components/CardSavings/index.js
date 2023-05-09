@@ -56,9 +56,15 @@ export default function CardSavings() {
     setInputValue(event.target.value)
   }
   
-  const radiationData = RadiationData();
+  const [kWhValue, setKWhValue] = useState('');
 
-  const savings = inputValue * radiationData;
+  const handleKwhChange = (value) => {
+  setKWhValue(value)}
+  
+
+
+
+  const savings = inputValue * kWhValue;
 
   
   return (
@@ -69,12 +75,13 @@ export default function CardSavings() {
       </StyledContent>
       <StyledContent>
         <StyledLabel htmlFor="test">Annual Radiation per Solar Panel</StyledLabel>
-        <StyledData><RadiationData/></StyledData>
+        <StyledData><RadiationData onKwhChange={handleKwhChange}/></StyledData>
       </StyledContent>
       <StyledContent>
-        <StyledLabel htmlFor="savings">Savings</StyledLabel>
-        <StyledData>{inputValue}</StyledData>
+        <StyledLabel htmlFor="savings">Annual Savings</StyledLabel>
+        <StyledData>{savings} €</StyledData>
       </StyledContent>
     </StyledCard>
   );
 }
+
