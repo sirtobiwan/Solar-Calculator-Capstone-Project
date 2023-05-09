@@ -12,19 +12,24 @@ const StyledCard = styled.article`
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin: 2rem auto;
   max-width: 800px;
   overflow: hidden;
   position: relative;
+  padding: 1rem
 `;
 
-const StyledLocation = styled.div`
+const StyledContent = styled.div`
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   flex-basis: 50%;
   padding: 1.5rem;
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
 `;
 
 const StyledLabel = styled.h2`
@@ -92,11 +97,11 @@ export default function CardRadiation() {
   
   return (
     <StyledCard>
-      <StyledLocation>
+      <StyledContent>
         <StyledLabel>Your Location</StyledLabel>
         <StyledData><Location/></StyledData>
-      </StyledLocation>
-      <StyledLocation>
+      </StyledContent>
+      <StyledContent>
         <StyledLabel>Annual Radiation</StyledLabel>
         <StyledData><RadiationData/></StyledData>
         <StyledRadiation>
@@ -125,7 +130,7 @@ export default function CardRadiation() {
             }
           />
         </StyledRadiation>
-      </StyledLocation>
+      </StyledContent>
     </StyledCard>
   );
 }
