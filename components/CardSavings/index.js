@@ -1,8 +1,5 @@
 import styled from "styled-components";
 import Modal from "../Modal";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import Image from "next/image";
 import ElectricityCosts from "../ElectricityCosts";
 
 
@@ -31,7 +28,7 @@ const StyledContent = styled.div`
   text-align: center;
 `;
 
-const StyledLabel = styled.h2`
+const StyledLabel = styled.label`
   color: #666666;
   font-size: 1rem;
   margin-bottom: 1rem;
@@ -45,49 +42,10 @@ const StyledData = styled.p`
   position: relative;
 `;
 
-const StyledRadiation = styled.span`
-  font-size: 0.8rem;
-  position: absolute;
-  bottom: 0rem;
-  right: 0.2rem;
-  background-color: #f5a623;
-  border-radius: 5px;
-  color: white;
-  padding: 0.25rem 0.5rem;
-  transition: background-color 0.3s ease;
 
   //hover on/off for mobile/desktop
 
-  @media (hover: hover) {
-    &:hover:enabled {
-      background-color: #e6951d;
-      border: none;
-      padding: 0.4rem 0.65rem;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    }
-  }
 
-  @media (hover: none) {
-    &:active:enabled {
-      background-color: #e6951d;
-    }
-  }
-
-  &:hover {
-    background-color: #e6951d;
-    border: none;
-    padding: 0.4rem 0.65rem;
-    cursor: pointer;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-`;
-
-const StyledImage = styled(Image)`
-  width: 50%;
-  height: auto;
-  padding: 10px;
-`;
 
 
 export default function CardRadiation() {
@@ -97,15 +55,15 @@ export default function CardRadiation() {
   return (
     <StyledCard>
       <StyledContent>
-        <StyledLabel>Enter your ElectricityCosts:</StyledLabel>
+        <StyledLabel htmlFor="electricityCosts">Enter your ElectricityCosts:</StyledLabel>
         <StyledData><ElectricityCosts/></StyledData>
       </StyledContent>
       <StyledContent>
-        <StyledLabel>Annual Radiation per Solar Panel</StyledLabel>
+        <StyledLabel htmlFor="test">Annual Radiation per Solar Panel</StyledLabel>
         <StyledData>test</StyledData>
       </StyledContent>
       <StyledContent>
-        <StyledLabel>Savings</StyledLabel>
+        <StyledLabel htmlFor="savings">Savings</StyledLabel>
         <StyledData>Test</StyledData>
       </StyledContent>
     </StyledCard>
