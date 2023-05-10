@@ -1,9 +1,7 @@
 import styled from "styled-components";
-import Modal from "../Modal";
 import ElectricityCosts from "../ElectricityCosts";
 import RadiationData from "../RadiationData";
 import { useState } from "react";
-
 
 const StyledCard = styled.article`
   background-color: #f9f9f9;
@@ -44,12 +42,6 @@ const StyledData = styled.div`
   position: relative;
 `;
 
-
-  //hover on/off for mobile/desktop
-
-
-
-
 export default function CardSavings() {
   const [inputValue, setInputValue] = useState('');
   function handleInputChange (event){
@@ -60,12 +52,8 @@ export default function CardSavings() {
 
   const handleKwhChange = (value) => {
   setKWhValue(value)}
-  
-
-
 
   const savings = inputValue * kWhValue;
-
   
   return (
     <StyledCard>
