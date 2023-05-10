@@ -22,10 +22,10 @@ const StyledCard = styled.article`
 
 const StyledContent = styled.div`
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-basis: 50%;
-  padding: 1.5rem;
+  padding: 2rem;
+  margin: 0.3rem;
   align-items: center; 
   justify-content: center; 
   text-align: center;
@@ -47,9 +47,10 @@ const StyledData = styled.div`
 
 const StyledModal = styled.span`
   font-size: 0.8rem;
+  display: flex;
   position: absolute;
-  bottom: 0rem;
-  right: 0.2rem;
+  right: 2rem;
+  top: 12rem;
   background-color: #f5a623;
   border-radius: 5px;
   color: white;
@@ -99,11 +100,11 @@ export default function CardSavings() {
   return (
     <StyledCard>
       <StyledContent>
-        <StyledLabel htmlFor="electricityCosts">Enter your ElectricityCosts per kWh:</StyledLabel>
+        <StyledLabel htmlFor="electricityCosts">Enter Electricity Costs per kWh:</StyledLabel>
         <StyledData><ElectricityCosts value={inputValue} onChangeInput={handleInputChange} /></StyledData>
       </StyledContent>
       <StyledContent>
-        <StyledLabel htmlFor="test">Annual Radiation per Solar Panel</StyledLabel>
+        <StyledLabel htmlFor="test">Annual Radiation</StyledLabel>
         <StyledModal>
           <Modal
             text={
@@ -113,7 +114,7 @@ export default function CardSavings() {
             }
             modalContent={
               <>
-                <h2>Solar Panel </h2>
+                <h2>Radiation per Solar Panel </h2>
                 <section>
                   based on a regular solar panel with 1.700x1.000 mm and on a photovoltaic orientation of 30° south.
                 </section>
