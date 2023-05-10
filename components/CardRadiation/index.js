@@ -39,7 +39,7 @@ const StyledLabel = styled.h2`
   text-transform: uppercase;
 `;
 
-const StyledData = styled.p`
+const StyledData = styled.div`
   font-size: 2rem;
   font-weight: bold;
   padding-top: 0.5rem;
@@ -102,7 +102,7 @@ export default function CardRadiation() {
         <StyledData>Frankfurt</StyledData>
       </StyledContent>
       <StyledContent>
-        <StyledLabel>Annual Radiation</StyledLabel>
+        <StyledLabel>Annual Radiation per Solar Panel</StyledLabel>
         <StyledData><RadiationData/></StyledData>
         <StyledRadiation>
           <Modal

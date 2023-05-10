@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Modal from "../Modal";
 import ElectricityCosts from "../ElectricityCosts";
-
+import RadiationData from "../RadiationData";
+import { useState } from "react";
 
 const StyledCard = styled.article`
   background-color: #f9f9f9;
@@ -35,37 +35,41 @@ const StyledLabel = styled.label`
   text-transform: uppercase;
 `;
 
-const StyledData = styled.p`
+const StyledData = styled.div`
   font-size: 2rem;
   font-weight: bold;
   padding-top: 0.5rem;
   position: relative;
 `;
 
+export default function CardSavings() {
+  const [inputValue, setInputValue] = useState('');
+  function handleInputChange (event){
+    setInputValue(event.target.value)
+  }
+  
+  const [kWhValue, setKWhValue] = useState('');
 
-  //hover on/off for mobile/desktop
+  const handleKwhChange = (value) => {
+  setKWhValue(value)}
 
-
-
-
-export default function CardRadiation() {
-
-
+  const savings = inputValue * kWhValue;
   
   return (
     <StyledCard>
       <StyledContent>
-        <StyledLabel htmlFor="electricityCosts">Enter your ElectricityCosts:</StyledLabel>
-        <StyledData><ElectricityCosts/></StyledData>
+        <StyledLabel htmlFor="electricityCosts">Enter your ElectricityCosts per kWh:</StyledLabel>
+        <StyledData><ElectricityCosts value={inputValue} onChangeInput={handleInputChange} /></StyledData>
       </StyledContent>
       <StyledContent>
         <StyledLabel htmlFor="test">Annual Radiation per Solar Panel</StyledLabel>
-        <StyledData>test</StyledData>
+        <StyledData><RadiationData onKwhChange={handleKwhChange}/></StyledData>
       </StyledContent>
       <StyledContent>
-        <StyledLabel htmlFor="savings">Savings</StyledLabel>
-        <StyledData>Test</StyledData>
+        <StyledLabel htmlFor="savings">Annual Savings</StyledLabel>
+        <StyledData>{savings} €</StyledData>
       </StyledContent>
     </StyledCard>
   );
 }
+
