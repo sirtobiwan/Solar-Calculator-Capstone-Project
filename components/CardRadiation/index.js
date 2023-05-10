@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Modal from "../Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 import RadiationData from "../RadiationData";
 import Location from "../Location";
@@ -108,7 +108,7 @@ export default function CardRadiation() {
           <Modal
             text={
               <>
-                <FontAwesomeIcon icon={faAngleDown} /> radiation in ghi
+                <FontAwesomeIcon icon={faInfoCircle} />
               </>
             }
             modalContent={
