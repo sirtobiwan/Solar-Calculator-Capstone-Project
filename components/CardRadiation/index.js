@@ -99,7 +99,7 @@ export default function CardRadiation() {
     <StyledCard>
       <StyledContent>
         <StyledLabel>Your Location</StyledLabel>
-        <StyledData><Location/></StyledData>
+        <StyledData>Frankfurt</StyledData>
       </StyledContent>
       <StyledContent>
         <StyledLabel>Annual Radiation per Solar Panel</StyledLabel>
