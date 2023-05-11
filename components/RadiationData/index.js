@@ -22,6 +22,6 @@ if (onKwhChange) {
 }
 
     return (
-        <p>{kWh} kWh</p>
+        <div>{kWh} kWh</div>
     )
 }
