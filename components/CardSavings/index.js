@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import ElectricityCosts from "../ElectricityCosts";
-import RadiationData from "../RadiationData";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../Modal";
+import { radiationAtom } from "../CardRadiation";
+import { useAtom } from 'jotai';
+
+
+
 
 const StyledCard = styled.article`
   background-color: #f9f9f9;
@@ -90,12 +94,9 @@ export default function CardSavings() {
     setInputValue(event.target.value)
   }
   
-  const [kWhValue, setKWhValue] = useState('');
+  const [radiationValue] = useAtom(radiationAtom);
 
-  const handleKwhChange = (value) => {
-  setKWhValue(value)}
-
-  const savings = inputValue * kWhValue;
+  const savings = inputValue * radiationValue;
   
   return (
     <StyledCard>
@@ -122,7 +123,7 @@ export default function CardSavings() {
             }
           />
         </StyledModal>
-        <StyledData><RadiationData onKwhChange={handleKwhChange}/></StyledData>
+        <StyledData>{radiationValue !== null ? `${radiationValue} kWh` : 'Select a location'}</StyledData>
         
       </StyledContent>
       <StyledContent>

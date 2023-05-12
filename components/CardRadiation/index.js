@@ -3,9 +3,8 @@ import Modal from "../Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
-import RadiationData from "../RadiationData";
-import Location from "../Location";
 import { useState } from "react";
+import { atom, useAtom } from 'jotai';
 
 const locations = [
   
@@ -113,10 +112,11 @@ const StyledDropdown = styled.select`
   border: 1px solid #ccc;
   background-color: #fff;
 `;
+export const radiationAtom = atom(null);
 
 export default function CardRadiation() {
   const [selectedLocation, setSelectedLocation] = useState('');
-  const [radiation, setRadiation] = useState(null);
+  const [radiation, setRadiation] = useAtom(radiationAtom);
 
   const handleLocationChange = (event) => {
     const selectedLocation = event.target.value;
@@ -125,6 +125,8 @@ export default function CardRadiation() {
       (location) => location.name === selectedLocation
     )?.radiation;
     setRadiation(selectedRadiation);
+
+  
   };
 
   return (
