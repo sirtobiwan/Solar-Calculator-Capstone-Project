@@ -65,7 +65,7 @@ font-size: 0.8rem;
   display: flex;
   position: absolute;
   right: 2rem;
-  top: 12rem;
+  top: 11rem;
   background-color: #f5a623;
   border-radius: 5px;
   color: white;

@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
@@ -12,6 +13,8 @@ export default function HomePage() {
         <StyledImage
           src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1172&q=80"
           alt="Solar Panel"
+          width={200}
+          height={200}
         />
       </StyledLink>
     </IntroContainer>
@@ -31,7 +34,7 @@ const zoomIn = keyframes`
 
 const StyledLink = styled(Link)``;
 
-const StyledImage = styled.img`
+const StyledImage = styled(Image)`
   width: 200px;
   height: 200px;
   border-radius: 10px;
