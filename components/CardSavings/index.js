@@ -117,7 +117,7 @@ export default function CardSavings() {
               <>
                 <h2>Radiation per Solar Panel </h2>
                 <section>
-                  based on a regular solar panel with 1.700x1.000 mm and on a photovoltaic orientation of 30° south.
+                Based on a regular solar panel size of 1.700x1.000 mm with 400 Watt-Peak and a photovoltaic orientation of 30° south.
                 </section>
               </>
             }

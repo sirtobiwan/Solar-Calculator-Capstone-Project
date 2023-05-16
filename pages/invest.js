@@ -1,14 +1,14 @@
+import CardInvest from "@/components/CardInvest";
 import Button from "@/components/Button";
-import CardSavings from "@/components/CardSavings";
 import styled from "styled-components";
 
-export default function Savings() {
+export default function Invest() {
   return (
     <>
-      <CardSavings />
+      <CardInvest></CardInvest>
       <ButtonContainer>
-        <Button href="/radiation" text="Back" />
-        <Button href="/invest" text="Next" />
+        <Button href="/savings" text="Back" />
+        <Button href="/" text="Next" />
       </ButtonContainer>
     </>
   );
@@ -18,4 +18,3 @@ const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-
