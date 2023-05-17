@@ -37,10 +37,10 @@ const StyledCard = styled.article`
 
 const StyledContent = styled.div`
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-basis: 50%;
-  padding: 1.5rem;
+  padding: 2rem;
+  margin: 0.3rem;
   align-items: center; 
   justify-content: center; 
   text-align: center;
@@ -49,23 +49,23 @@ const StyledContent = styled.div`
 const StyledLabel = styled.h2`
   color: #666666;
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 0.2rem;
   text-transform: uppercase;
 `;
 
 const StyledData = styled.div`
   font-size: 2rem;
   font-weight: bold;
-  padding-top: 0.5rem;
+  padding-top: 0.7rem;
   position: relative;
 `;
 
 const StyledModal = styled.span`
-font-size: 0.8rem;
+  font-size: 0.8rem;
   display: flex;
   position: absolute;
   right: 2rem;
-  top: 11rem;
+  top: 15rem;
   background-color: #f5a623;
   border-radius: 5px;
   color: white;
@@ -110,7 +110,16 @@ const StyledDropdown = styled.select`
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #fff;
+  text-align: center;
 `;
+
+const StyledInfo = styled.div`
+  color: #666666;
+  font-size: 0.6rem;
+  margin: 0.8rem;
+  text-align: center;
+`;
+
 export const radiationAtom = atom(null);
 
 export default function CardRadiation() {
@@ -142,6 +151,8 @@ export default function CardRadiation() {
             ))}
           </StyledDropdown>
         </StyledData>
+        <StyledInfo>The location will be used to estimate the annual sun exposure (solar radiation),
+          which will be used for further calculations</StyledInfo>
       </StyledContent>
       <StyledContent>
         <StyledLabel>Annual Radiation per Solar Panel</StyledLabel>
