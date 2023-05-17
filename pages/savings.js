@@ -8,7 +8,7 @@ export default function Savings() {
       <CardSavings />
       <ButtonContainer>
         <Button href="/radiation" text="Back" />
-        <Button href="/" text="Next" />
+        <Button href="/invest" text="Next" />
       </ButtonContainer>
     </>
   );

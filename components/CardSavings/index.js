@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../Modal";
 import { radiationAtom } from "../CardRadiation";
-import { useAtom } from 'jotai';
+import { atom, useAtom } from 'jotai';
 
 
 
@@ -61,8 +61,6 @@ const StyledModal = styled.span`
   padding: 0.25rem 0.5rem;
   transition: background-color 0.3s ease;
 
-  //hover on/off for mobile/desktop
-
   @media (hover: hover) {
     &:hover:enabled {
       background-color: #e6951d;
@@ -88,6 +86,8 @@ const StyledModal = styled.span`
   }
 `;
 
+export const savingsAtom = atom(null);
+
 export default function CardSavings() {
   const [inputValue, setInputValue] = useState('');
   function handleInputChange (event){
@@ -96,7 +96,11 @@ export default function CardSavings() {
   
   const [radiationValue] = useAtom(radiationAtom);
 
-  const savings = inputValue * radiationValue;
+  const savings = (inputValue * radiationValue).toFixed(2);
+
+  const [savingsValue, setSavingsValue] = useAtom(savingsAtom);
+
+  setSavingsValue(savings)
   
   return (
     <StyledCard>
@@ -117,7 +121,7 @@ export default function CardSavings() {
               <>
                 <h2>Radiation per Solar Panel </h2>
                 <section>
-                  based on a regular solar panel with 1.700x1.000 mm and on a photovoltaic orientation of 30° south.
+                Based on a regular solar panel size of 1.700x1.000 mm with 400 Watt-Peak and a photovoltaic orientation of 30° south.
                 </section>
               </>
             }
@@ -128,9 +132,12 @@ export default function CardSavings() {
       </StyledContent>
       <StyledContent>
         <StyledLabel htmlFor="savings">Annual Savings</StyledLabel>
-        <StyledData>{savings} €</StyledData>
+        <StyledData>
+        {!inputValue ? 'Enter electricity costs' : !radiationValue ? 'Select a location' : `${savings} €`}
+        </StyledData>
       </StyledContent>
     </StyledCard>
   );
 }
+
 

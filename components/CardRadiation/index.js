@@ -8,16 +8,16 @@ import { atom, useAtom } from 'jotai';
 
 const locations = [
   
-  { id: 1, name: 'Berlin', radiation:  100 },
-  { id: 2, name: 'Capetown', radiation: 170 },
+  { id: 1, name: 'Berlin', radiation:  220 },
+  { id: 2, name: 'Capetown', radiation: 270 },
   { id: 3, name: 'Frankfurt', radiation: 246  },
-  { id: 4, name: 'Madrid', radiation: 120 },
-  { id: 5, name: 'New York', radiation: 140 },
-  { id: 6, name: 'Paris', radiation: 110 },
-  { id: 7, name: 'Rio de Janeiro', radiation: 150 },
-  { id: 8, name: 'Rome', radiation: 130 },
-  { id: 9, name: 'Sydney', radiation: 160 },
-  { id: 10, name: 'Tokyo', radiation: 180 },
+  { id: 4, name: 'Madrid', radiation: 275 },
+  { id: 5, name: 'New York', radiation: 244 },
+  { id: 6, name: 'Paris', radiation: 210 },
+  { id: 7, name: 'Rio de Janeiro', radiation: 310 },
+  { id: 8, name: 'Rome', radiation: 290 },
+  { id: 9, name: 'Sydney', radiation: 295 },
+  { id: 10, name: 'Tokyo', radiation: 235 },
 ];
 
 
@@ -37,10 +37,10 @@ const StyledCard = styled.article`
 
 const StyledContent = styled.div`
   background-color: #ffffff;
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  flex-basis: 50%;
-  padding: 1.5rem;
+  padding: 2rem;
+  margin: 0.3rem;
   align-items: center; 
   justify-content: center; 
   text-align: center;
@@ -49,30 +49,29 @@ const StyledContent = styled.div`
 const StyledLabel = styled.h2`
   color: #666666;
   font-size: 1rem;
-  margin-bottom: 1rem;
+  margin: 0.2rem;
   text-transform: uppercase;
 `;
 
 const StyledData = styled.div`
   font-size: 2rem;
   font-weight: bold;
-  padding-top: 0.5rem;
+  padding-top: 0.7rem;
   position: relative;
 `;
 
 const StyledModal = styled.span`
-font-size: 0.8rem;
+  font-size: 0.8rem;
   display: flex;
   position: absolute;
   right: 2rem;
-  top: 11rem;
+  top: 15rem;
   background-color: #f5a623;
   border-radius: 5px;
   color: white;
   padding: 0.25rem 0.5rem;
   transition: background-color 0.3s ease;
 
-  //hover on/off for mobile/desktop
 
   @media (hover: hover) {
     &:hover:enabled {
@@ -111,7 +110,16 @@ const StyledDropdown = styled.select`
   border-radius: 5px;
   border: 1px solid #ccc;
   background-color: #fff;
+  text-align: center;
 `;
+
+const StyledInfo = styled.div`
+  color: #666666;
+  font-size: 0.6rem;
+  margin: 0.8rem;
+  text-align: center;
+`;
+
 export const radiationAtom = atom(null);
 
 export default function CardRadiation() {
@@ -143,6 +151,8 @@ export default function CardRadiation() {
             ))}
           </StyledDropdown>
         </StyledData>
+        <StyledInfo>The location will be used to estimate the annual sun exposure (solar radiation),
+          which will be used for further calculations</StyledInfo>
       </StyledContent>
       <StyledContent>
         <StyledLabel>Annual Radiation per Solar Panel</StyledLabel>

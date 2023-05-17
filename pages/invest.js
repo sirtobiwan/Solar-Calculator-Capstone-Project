@@ -1,14 +1,14 @@
-import CardRadiation from "@/components/CardRadiation";
+import CardInvest from "@/components/CardInvest";
 import Button from "@/components/Button";
 import styled from "styled-components";
 
-export default function RadiationResult() {
+export default function Invest() {
   return (
     <>
-      <CardRadiation/>
+      <CardInvest/>
       <ButtonContainer>
-        <Button href="/" text="Back" />
-        <Button href="/savings" text="Next" />
+        <Button href="/savings" text="Back" />
+        <Button href="/" text="Next" />
       </ButtonContainer>
     </>
   );
