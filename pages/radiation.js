@@ -5,7 +5,7 @@ import styled from "styled-components";
 export default function RadiationResult() {
   return (
     <>
-      <CardRadiation></CardRadiation>
+      <CardRadiation/>
       <ButtonContainer>
         <Button href="/" text="Back" />
         <Button href="/savings" text="Next" />

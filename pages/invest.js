@@ -5,7 +5,7 @@ import styled from "styled-components";
 export default function Invest() {
   return (
     <>
-      <CardInvest></CardInvest>
+      <CardInvest/>
       <ButtonContainer>
         <Button href="/savings" text="Back" />
         <Button href="/" text="Next" />

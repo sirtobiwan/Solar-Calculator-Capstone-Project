@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../Modal";
-import { Button } from "react-bootstrap";
 import { savingsAtom } from "../CardSavings";
 import { useAtom } from 'jotai';
 
@@ -89,7 +88,6 @@ const StyledInvestmentCost = styled.div`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
 `;
 
 const StyledPanelCount = styled.div`
@@ -102,6 +100,7 @@ const StyledPanelButtons = styled.div`
   display: flex;
   align-items: center;
   white-space: nowrap;
+  margin-bottom: 1rem;
 
   button {
     margin: 0 0.5rem;
@@ -132,11 +131,10 @@ export default function CardInvest() {
 
   const calculateInvestmentCost = () => {
     const baseCost = 900;
-    const discountPercent = 3;
+    const discountPercent = Math.min(0.5 * (panelCount - 1), 50);
     const discountFactor = 1 - discountPercent / 100;
-    const adjustedPanelCount = panelCount - 1;
-    return Math.round(baseCost * Math.pow(discountFactor, adjustedPanelCount));
-  };
+    return Math.round(baseCost * discountFactor);
+  }; //0,5% discount for any additional solar panel up to 50%
 
   const investmentCost = panelCount * calculateInvestmentCost();
 
@@ -152,22 +150,18 @@ export default function CardInvest() {
 
   const [savingsValue] = useAtom(savingsAtom);
 
-const returnOfInvest = isGermanyInvestment ? ((investmentCost/panelCount / savingsValue) * 0.81).toFixed(1) : (investmentCost / panelCount / savingsValue).toFixed(1);
-
-
+  const returnOfInvest = isGermanyInvestment ? ((investmentCost/panelCount / savingsValue) * 0.81).toFixed(1) : (investmentCost / panelCount / savingsValue).toFixed(1);
 
   return (
     <StyledCard>
       <StyledContent>
         <StyledInvestmentCost>
           <StyledLabel>Investment cost for:</StyledLabel>
-          <br />
           <StyledPanelButtons>
-            <Button onClick={decreasePanelCount}>-</Button>
+            <button onClick={decreasePanelCount}>-</button>
             <StyledPanelCount>{panelCount}</StyledPanelCount>
-            <Button onClick={increasePanelCount}>+</Button>
+            <button onClick={increasePanelCount}>+</button>
           </StyledPanelButtons>
-          <br />
           <StyledLabel>solar panel</StyledLabel>
         </StyledInvestmentCost>
         <StyledData>{investmentCost} Euro</StyledData>
