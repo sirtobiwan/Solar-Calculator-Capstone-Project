@@ -4,6 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../Modal";
 import { Button } from "react-bootstrap";
+import { savingsAtom } from "../CardSavings";
+import { useAtom } from 'jotai';
 
 const StyledCard = styled.article`
   background-color: #f9f9f9;
@@ -55,8 +57,6 @@ const StyledModal = styled.span`
   color: white;
   padding: 0.25rem 0.5rem;
   transition: background-color 0.3s ease;
-
-  //hover on/off for mobile/desktop
 
   @media (hover: hover) {
     &:hover:enabled {
@@ -119,6 +119,13 @@ const StyledCheckbox = styled.div`
   color: ${(props) => (props.checked ? "#fff" : "#000")};
 `;
 
+const StyledGovernmentSupport = styled.div`
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  color: #666666;
+`;
+
 export default function CardInvest() {
   const [panelCount, setPanelCount] = useState(1);
   const [isGermanyInvestment, setIsGermanyInvestment] = useState(false);
@@ -143,9 +150,11 @@ export default function CardInvest() {
     }
   };
 
-  const handleGermanyInvestmentClick = () => {
-    setIsGermanyInvestment(!isGermanyInvestment);
-  };
+  const [savingsValue] = useAtom(savingsAtom);
+
+const returnOfInvest = isGermanyInvestment ? ((investmentCost/panelCount / savingsValue) * 0.81).toFixed(1) : (investmentCost / panelCount / savingsValue).toFixed(1);
+
+
 
   return (
     <StyledCard>
@@ -171,7 +180,7 @@ export default function CardInvest() {
             }
             modalContent={
               <>
-                <h2>Investment costs</h2>
+                <h2> Average Investment Costs</h2>
                 <section>
                   Based on a regular solar panel size of 1.700x1.000 mm with 400
                   Wp including battery.
@@ -196,14 +205,17 @@ export default function CardInvest() {
     Yes
   </StyledCheckbox>
   {isGermanyInvestment && (
-    <StyledData>Receive 19% Government Support</StyledData>
+    <StyledGovernmentSupport>Receive 19% Government Support</StyledGovernmentSupport>
   )}
 </StyledContent>
 
       <StyledContent>
         <StyledLabel>Return of Invest</StyledLabel>
-        <StyledData>10 years</StyledData>
+        <StyledData>
+        {returnOfInvest !== "Infinity" ? `${returnOfInvest} years` : "Select a location"}
+          </StyledData>
       </StyledContent>
     </StyledCard>
   );
 }
+

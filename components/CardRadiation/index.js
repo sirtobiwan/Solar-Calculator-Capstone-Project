@@ -8,16 +8,16 @@ import { atom, useAtom } from 'jotai';
 
 const locations = [
   
-  { id: 1, name: 'Berlin', radiation:  100 },
-  { id: 2, name: 'Capetown', radiation: 170 },
+  { id: 1, name: 'Berlin', radiation:  220 },
+  { id: 2, name: 'Capetown', radiation: 270 },
   { id: 3, name: 'Frankfurt', radiation: 246  },
-  { id: 4, name: 'Madrid', radiation: 120 },
-  { id: 5, name: 'New York', radiation: 140 },
-  { id: 6, name: 'Paris', radiation: 110 },
-  { id: 7, name: 'Rio de Janeiro', radiation: 150 },
-  { id: 8, name: 'Rome', radiation: 130 },
-  { id: 9, name: 'Sydney', radiation: 160 },
-  { id: 10, name: 'Tokyo', radiation: 180 },
+  { id: 4, name: 'Madrid', radiation: 275 },
+  { id: 5, name: 'New York', radiation: 244 },
+  { id: 6, name: 'Paris', radiation: 210 },
+  { id: 7, name: 'Rio de Janeiro', radiation: 310 },
+  { id: 8, name: 'Rome', radiation: 290 },
+  { id: 9, name: 'Sydney', radiation: 295 },
+  { id: 10, name: 'Tokyo', radiation: 235 },
 ];
 
 
@@ -72,7 +72,6 @@ font-size: 0.8rem;
   padding: 0.25rem 0.5rem;
   transition: background-color 0.3s ease;
 
-  //hover on/off for mobile/desktop
 
   @media (hover: hover) {
     &:hover:enabled {
