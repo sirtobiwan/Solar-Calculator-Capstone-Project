@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { StyledCard, StyledCardContent } from "../StyledCard";
 import Modal from "../Modal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -19,32 +20,6 @@ const locations = [
   { id: 9, name: 'Sydney', radiation: 295 },
   { id: 10, name: 'Tokyo', radiation: 235 },
 ];
-
-
-const StyledCard = styled.article`
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 2rem auto;
-  max-width: 800px;
-  overflow: hidden;
-  position: relative;
-  padding: 1rem
-`;
-
-const StyledContent = styled.div`
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin: 0.3rem;
-  align-items: center; 
-  justify-content: center; 
-  text-align: center;
-`;
 
 const StyledLabel = styled.h2`
   color: #666666;
@@ -139,7 +114,7 @@ export default function CardRadiation() {
 
   return (
     <StyledCard>
-      <StyledContent>
+      <StyledCardContent>
         <StyledLabel>Your Location</StyledLabel>
         <StyledData>
           <StyledDropdown value={selectedLocation} onChange={handleLocationChange}>
@@ -153,8 +128,8 @@ export default function CardRadiation() {
         </StyledData>
         <StyledInfo>The location will be used to estimate the annual sun exposure (solar radiation),
           which will be used for further calculations</StyledInfo>
-      </StyledContent>
-      <StyledContent>
+      </StyledCardContent>
+      <StyledCardContent>
         <StyledLabel>Annual Radiation per Solar Panel</StyledLabel>
         <StyledData>
           {radiation !== null ? `${radiation} kWh` : 'Select a location'}
@@ -185,7 +160,7 @@ export default function CardRadiation() {
             }
           />
         </StyledModal>
-      </StyledContent>
+      </StyledCardContent>
     </StyledCard>
   );
 }

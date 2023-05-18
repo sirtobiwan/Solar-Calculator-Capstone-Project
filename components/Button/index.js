@@ -3,9 +3,7 @@ import styled from "styled-components";
 
 export default function Button({ href, text }) {
   return (
-    
       <StyledButton href={href}>{text}</StyledButton>
-    
   );
 }
 
