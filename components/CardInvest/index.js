@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { StyledCard, StyledCardContent } from "../StyledCard";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
@@ -6,30 +7,8 @@ import Modal from "../Modal";
 import { savingsAtom } from "../CardSavings";
 import { useAtom } from 'jotai';
 
-const StyledCard = styled.article`
-  background-color: #f9f9f9;
-  border-radius: 10px;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 2rem auto;
-  max-width: 800px;
-  overflow: hidden;
-  position: relative;
-  padding: 1rem;
-`;
 
-const StyledContent = styled.div`
-  background-color: #ffffff;
-  border-radius: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin: 0.3rem;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-`;
+
 
 const StyledLabel = styled.label`
   color: #666666;
@@ -154,7 +133,7 @@ export default function CardInvest() {
 
   return (
     <StyledCard>
-      <StyledContent>
+      <StyledCardContent>
         <StyledInvestmentCost>
           <StyledLabel>Investment cost for:</StyledLabel>
           <StyledPanelButtons>
@@ -183,8 +162,8 @@ export default function CardInvest() {
             }
           />
         </StyledModal>
-      </StyledContent>
-      <StyledContent>
+      </StyledCardContent>
+      <StyledCardContent>
   <StyledLabel>Is your investment in Germany?</StyledLabel>
   <StyledCheckbox
     onClick={() => setIsGermanyInvestment(false)}
@@ -201,14 +180,14 @@ export default function CardInvest() {
   {isGermanyInvestment && (
     <StyledGovernmentSupport>Receive 19% Government Support</StyledGovernmentSupport>
   )}
-</StyledContent>
+</StyledCardContent>
 
-      <StyledContent>
+      <StyledCardContent>
         <StyledLabel>Return of Invest</StyledLabel>
         <StyledData>
         {returnOfInvest !== "Infinity" ? `${returnOfInvest} years` : "Select a location"}
           </StyledData>
-      </StyledContent>
+      </StyledCardContent>
     </StyledCard>
   );
 }
