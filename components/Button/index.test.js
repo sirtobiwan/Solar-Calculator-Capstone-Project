@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Button from '../Button';
 
-test('rendert den Button mit dem korrekten Link und Text', () => {
+test('renders the button with the correct link and text', () => {
   const href = 'http://localhost:3000/savings';
   const text = 'next';
 
