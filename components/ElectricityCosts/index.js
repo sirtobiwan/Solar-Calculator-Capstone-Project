@@ -7,7 +7,6 @@ const StyledInput = styled.input`
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 15rem;
-  //pseudoklasse für placeholder
   ::placeholder {
     color: #cccccc;
   }`;
