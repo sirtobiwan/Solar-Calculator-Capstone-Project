@@ -9,7 +9,7 @@ const NavigationBar = styled.nav`
   padding: 10px;
 `;
 
-const NavItem = styled.div`
+const NavItem = styled.p`
   position: relative;
   padding: 10px;
   margin: 0 10px;

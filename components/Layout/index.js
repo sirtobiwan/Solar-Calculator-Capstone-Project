@@ -1,13 +1,10 @@
 import styled from 'styled-components';
-import Navigation from '../NavigationBar';
 
 export default function Layout() {
   return (
-    <>
     <StyledHeader>
       <h1>My Solar Calculator</h1>
     </StyledHeader>
-    </>
   );
 }
 
