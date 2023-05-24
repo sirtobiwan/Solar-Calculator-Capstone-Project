@@ -25,7 +25,6 @@ const StyledImage = styled(Image)`
   width: 100%;
   height: auto;
   overflow: hidden;
-  cursor: pointer;
 `;
 
 const IntroContainer = styled.div`
