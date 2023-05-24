@@ -4,7 +4,7 @@ const StyledInput = styled.input`
   
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primary-background);
   border-radius: 4px;
   width: 15rem;
   ::placeholder {

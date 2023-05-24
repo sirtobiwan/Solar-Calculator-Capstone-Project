@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { StyledCard, StyledCardContent } from "../StyledCard";
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,7 +18,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledData = styled.div`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding-top: 0.5rem;
   position: relative;
@@ -30,7 +30,7 @@ const StyledModal = styled.span`
   position: absolute;
   right: 2rem;
   top: 2rem;
-  background-color: #f5a623;
+  background-color: var(--primary-background);
   border-radius: 5px;
   color: white;
   padding: 0.25rem 0.5rem;
@@ -83,14 +83,19 @@ const StyledPanelButtons = styled.div`
 
   button {
     margin: 0 0.5rem;
+    background-color:var(--primary-background);
+    border-radius: 5px;
+    color: white;
+    border: 2px solid var(--primary-background);
   }
 `;
 
 const StyledCheckbox = styled.div`
   display: block;
+  border-radius: 5px;
   margin: 10px auto 0;
   width: 100px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--primary-background);
   padding: 5px 10px;
   cursor: pointer;
   background-color: ${(props) => (props.checked ? "#ccc" : "transparent")};
@@ -102,6 +107,22 @@ const StyledGovernmentSupport = styled.div`
   margin-top: 1rem;
   text-align: center;
   color: #666666;
+`;
+
+const rotateAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+const ColoredSunIcon = styled.img`
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  animation: ${rotateAnimation} 7s linear infinite;
 `;
 
 export default function CardInvest() {
@@ -153,6 +174,7 @@ export default function CardInvest() {
             }
             modalContent={
               <>
+                 <ColoredSunIcon src="/sonne.png" alt="Colored Sun Icon" />
                 <h2> Average Investment Costs</h2>
                 <section>
                   Based on a regular solar panel size of 1.700x1.000 mm with 400

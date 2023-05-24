@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { StyledCard, StyledCardContent } from "../StyledCard";
 import ElectricityCosts from "../ElectricityCosts";
 import { useState } from "react";
@@ -16,7 +16,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledData = styled.div`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding-top: 0.5rem;
   position: relative;
@@ -28,7 +28,7 @@ const StyledModal = styled.span`
   position: absolute;
   right: 2rem;
   top: 12rem;
-  background-color: #f5a623;
+  background-color: var(--primary-background);
   border-radius: 5px;
   color: white;
   padding: 0.25rem 0.5rem;
@@ -59,14 +59,31 @@ const StyledModal = styled.span`
   }
 `;
 
+const rotateAnimation = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+const ColoredSunIcon = styled.img`
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.5rem;
+  animation: ${rotateAnimation} 7s linear infinite;
+`;
+
 export const savingsAtom = atom(null);
 
 export default function CardSavings() {
   const [inputValue, setInputValue] = useState('');
-  function handleInputChange (event){
-    setInputValue(event.target.value)
+
+  function handleInputChange(event) {
+    setInputValue(event.target.value);
   }
-  
+
   const [radiationValue] = useAtom(radiationAtom);
 
   const savings = (inputValue * radiationValue).toFixed(2);
@@ -74,12 +91,14 @@ export default function CardSavings() {
   const [savingsValue, setSavingsValue] = useAtom(savingsAtom);
 
   setSavingsValue(savings)
-  
+
   return (
     <StyledCard>
       <StyledCardContent>
         <StyledLabel htmlFor="electricityCosts">Enter Electricity Costs per kWh:</StyledLabel>
-        <StyledData><ElectricityCosts value={inputValue} onChangeInput={handleInputChange} /></StyledData>
+        <StyledData>
+          <ElectricityCosts value={inputValue} onChangeInput={handleInputChange} />
+        </StyledData>
       </StyledCardContent>
       <StyledCardContent>
         <StyledLabel htmlFor="test">Annual Radiation</StyledLabel>
@@ -92,25 +111,24 @@ export default function CardSavings() {
             }
             modalContent={
               <>
-                <h2>Radiation per Solar Panel </h2>
+                <ColoredSunIcon src="/sonne.png" alt="Colored Sun Icon" />
+                <h2>Radiation per Solar Panel</h2>
+
                 <section>
-                Based on a regular solar panel size of 1.700x1.000 mm with 400 Watt-Peak and a photovoltaic orientation of 30° south.
+                  Based on a regular solar panel size of 1.700x1.000 mm with 400 Watt-Peak and a photovoltaic orientation of 30° south.
                 </section>
               </>
             }
           />
         </StyledModal>
         <StyledData>{radiationValue !== null ? `${radiationValue} kWh` : 'Select a location'}</StyledData>
-        
       </StyledCardContent>
       <StyledCardContent>
         <StyledLabel htmlFor="savings">Annual Savings</StyledLabel>
         <StyledData>
-        {!inputValue ? 'Enter electricity costs' : !radiationValue ? 'Select a location' : `${savings} €`}
+          {!inputValue ? 'Enter electricity costs' : !radiationValue ? 'Select a location' : `${savings} €`}
         </StyledData>
       </StyledCardContent>
     </StyledCard>
   );
 }
-
-

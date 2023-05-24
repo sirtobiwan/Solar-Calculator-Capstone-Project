@@ -9,7 +9,7 @@ export default function Button({ href, text }) {
 
 const StyledButton = styled(Link)`
 
-  background-color: #f5a623;
+  background-color: var(--primary-background);
   color: white;
   border: none;
   border-radius: 5px;
