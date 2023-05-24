@@ -38,8 +38,7 @@ const IntroParagraph = styled.p`
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  margin: 0;
-  margin-bottom: 1rem;
+  margin: 1.5rem;
   color: #333;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 `;

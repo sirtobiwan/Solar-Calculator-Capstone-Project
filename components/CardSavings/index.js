@@ -95,7 +95,7 @@ export default function CardSavings() {
   return (
     <StyledCard>
       <StyledCardContent>
-        <StyledLabel htmlFor="electricityCosts">Enter Electricity Costs per kWh:</StyledLabel>
+        <StyledLabel htmlFor="electricityCosts">Enter Electricity Costs €/kWh:</StyledLabel>
         <StyledData>
           <ElectricityCosts value={inputValue} onChangeInput={handleInputChange} />
         </StyledData>

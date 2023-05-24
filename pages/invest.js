@@ -10,7 +10,6 @@ export default function Invest() {
       <CardInvest/>
       <ButtonContainer>
         <Button href="/savings" text="Back" />
-        <Button href="/" text="Next" />
       </ButtonContainer>
     </>
   );

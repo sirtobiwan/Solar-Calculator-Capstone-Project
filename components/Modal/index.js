@@ -33,7 +33,7 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 2;
-  top: 10rem;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
