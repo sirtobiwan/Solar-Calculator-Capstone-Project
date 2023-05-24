@@ -33,7 +33,7 @@ const Overlay = styled.div`
   background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
   z-index: 2;
-  top: 0;
+  top: 10rem;
   left: 0;
   right: 0;
   bottom: 0;
@@ -47,25 +47,26 @@ const ModalStyle = styled.div`
   color: black;
   border-radius: 10px;
   padding: 1rem;
-  margin: 2rem;
+  margin: 1.5rem;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
   position: relative;
 `;
 
 const CloseButton = styled.button`
-  background-color: transparent;
+  background-color: var(--primary-background);
   border: none;
-  color: black;
+  color: white;
   position: absolute;
   top: 0.5rem;
   right: 0.5rem;
   font-size: 1.5rem;
+  border-radius: 5px;
   cursor: pointer;
 `;
 
 const ModalContent = styled.div`
   text-align: center;
-  padding: 2rem;
-  font-size: 1.2rem;
+  padding: 1rem;
+  font-size: 0.8rem;
   font-family: Arial, sans-serif;
 `;

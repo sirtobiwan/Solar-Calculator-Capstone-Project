@@ -9,16 +9,15 @@ import { atom, useAtom } from 'jotai';
 
 const locations = [
   
-  { id: 1, name: 'Berlin', radiation:  220 },
-  { id: 2, name: 'Capetown', radiation: 270 },
-  { id: 3, name: 'Frankfurt', radiation: 246  },
-  { id: 4, name: 'Madrid', radiation: 275 },
-  { id: 5, name: 'New York', radiation: 244 },
-  { id: 6, name: 'Paris', radiation: 210 },
-  { id: 7, name: 'Rio de Janeiro', radiation: 310 },
-  { id: 8, name: 'Rome', radiation: 290 },
-  { id: 9, name: 'Sydney', radiation: 295 },
-  { id: 10, name: 'Tokyo', radiation: 235 },
+  { id: 1, name: 'Berlin', radiation:  233 },
+  { id: 2, name: 'Cologne', radiation: 252 },
+  { id: 3, name: 'Frankfurt', radiation: 246 },
+  { id: 4, name: 'Hamburg', radiation: 216 },
+  { id: 5, name: 'London', radiation: 203 },
+  { id: 6, name: 'Madrid', radiation: 275 },
+  { id: 7, name: 'Munich', radiation: 258 },
+  { id: 8, name: 'Paris', radiation: 218 },
+  { id: 9, name: 'Rome', radiation: 290 },
 ];
 
 const StyledLabel = styled.h2`
@@ -29,7 +28,7 @@ const StyledLabel = styled.h2`
 `;
 
 const StyledData = styled.div`
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding-top: 0.7rem;
   position: relative;
@@ -41,7 +40,7 @@ const StyledModal = styled.span`
   position: absolute;
   right: 2rem;
   top: 15rem;
-  background-color: #f5a623;
+  background-color: var(--primary-background);
   border-radius: 5px;
   color: white;
   padding: 0.25rem 0.5rem;
@@ -74,16 +73,16 @@ const StyledModal = styled.span`
 `;
 
 const StyledImage = styled(Image)`
-  width: 50%;
+  width: 90%;
   height: auto;
-  padding: 10px;
+  padding: 15px;
 `;
 
 const StyledDropdown = styled.select`
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 2px solid var(--primary-background);
   background-color: #fff;
   text-align: center;
 `;
@@ -143,7 +142,7 @@ export default function CardRadiation() {
             }
             modalContent={
               <>
-                <h2>Radiation in GHI </h2>
+                <h2>☀️ Radiation in GHI ☀️ </h2>
                 <section>
                   Global Horizontal Irradiance (GHI) is the total solar
                   radiation incident on a horizontal surface. It is the sum of

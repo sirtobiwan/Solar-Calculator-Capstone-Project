@@ -28,7 +28,7 @@ export default function Navigation() {
     <NavigationBar>
       <Link href="/radiation">
         <NavItem>
-          Location
+        Location
         </NavItem>
       </Link>
       <Link href="/savings">
